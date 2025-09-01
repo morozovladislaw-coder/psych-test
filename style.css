@@ -20,40 +20,53 @@ h1, h2 {
 
 .question {
   background: #fff;
-  border-radius: 15px;
-  margin: 15px 0;
-  padding: 15px;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  margin: 20px 0;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.question p {
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
 button.answer {
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
   margin-right: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
   font-weight: bold;
-  transition: 0.2s all;
+  transition: all 0.2s;
 }
 
 button.answer.yes { background-color: #a6f1d9; }
 button.answer.no { background-color: #ff6fa6; }
 button.answer.selected { background-color: #ccc !important; }
 
-button#submit-test {
-  margin-top: 20px;
-  padding: 12px 25px;
+button.answer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+#submit-test {
+  display: block;
+  margin: 25px auto;
+  padding: 15px 30px;
   border: none;
-  border-radius: 15px;
+  border-radius: 20px;
   background: #a6f1d9;
   cursor: pointer;
   font-weight: bold;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  transition: all 0.2s;
+}
+
+#submit-test:hover {
+  transform: translateY(-2px);
 }
 
 #game-area {
@@ -89,13 +102,13 @@ button#submit-test {
 
 #restart-game {
   margin-top: 15px;
-  padding: 10px 20px;
+  padding: 12px 25px;
   background-color: #a6f1d9;
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
   font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   transition: all 0.2s;
 }
 
@@ -104,8 +117,14 @@ button#submit-test {
   box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
-.hidden {
-  display: none;
+.hidden { display: none; }
+
+.reminder {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+  color: #444;
+  font-weight: bold;
 }
 
 footer {
