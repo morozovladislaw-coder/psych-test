@@ -17,18 +17,18 @@
     <div id="result" class="quiz-card hidden"></div>
 
     <div id="mini-game" class="quiz-card hidden">
-      <h2>🎁 Вітаємо! Міні-гра</h2>
-      <button id="click-game" class="game-btn">Натисни мене 10 разів</button>
-      <p id="game-message"></p>
+      <h2>🎁 Міні-гра: злови сердечки!</h2>
+      <p>Натискай на падаючі сердечки, щоб набрати очки!</p>
+      <div id="game-area"></div>
+      <p id="score-display">Очки: 0</p>
+      <button id="restart-game" class="send-btn hidden">Грати ще раз</button>
     </div>
 
     <form id="email-form" class="quiz-card hidden" 
-          action="https://docs.google.com/forms/d/e/ВАШ_FORM_ID/formResponse" 
-          method="POST" target="_blank">
-      <h3>Надіслати результат на Google Form</h3>
-      <input type="email" name="entry.EMAIL_ID" value="morozovladislaw@gmail.com" required>
-      <input type="hidden" name="entry.RESULT_ID" id="result-hidden">
-      <button type="submit" class="send-btn">Відправити</button>
+          action="mailto:morozovladislaw@gmail.com" method="POST" enctype="text/plain">
+      <h3>Надіслати результат на емейл</h3>
+      <input type="hidden" name="Результат" id="result-hidden">
+      <button type="submit" class="send-btn">Відправити результат</button>
     </form>
   </main>
 
