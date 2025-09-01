@@ -1,78 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #fff1f5, #e0fff4);
+  font-family: 'Arial', sans-serif;
+  background: #f6f4ff;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
   max-width: 700px;
-  margin: 50px auto;
+  width: 100%;
   padding: 20px;
 }
 
-header {
+h1, h2 {
   text-align: center;
-  margin-bottom: 30px;
+  color: #444;
 }
 
-header h1 {
-  font-size: 2.2rem;
-  color: #333;
-}
-
-header p {
-  color: #555;
-}
-
-.quiz-card {
+.question {
   background: #fff;
-  border-radius: 20px;
-  padding: 25px;
-  margin-bottom: 20px;
-  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 15px;
+  margin: 15px 0;
+  padding: 15px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
-.quiz-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 25px rgba(0,0,0,0.2);
+button.answer {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-weight: bold;
+  transition: 0.2s all;
 }
 
-button {
+button.answer.yes { background-color: #a6f1d9; }
+button.answer.no { background-color: #ff6fa6; }
+button.answer.selected { background-color: #ccc !important; }
+
+button#submit-test {
+  margin-top: 20px;
   padding: 12px 25px;
-  margin: 8px;
   border: none;
   border-radius: 15px;
-  font-size: 16px;
+  background: #a6f1d9;
   cursor: pointer;
-  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
-  transition: all 0.2s;
-}
-
-button:hover {
-  transform: translateY(-2px);
-}
-
-button.selected {
-  background: #aaa !important;
-  color: #fff !important;
-}
-
-.yes {
-  background-color: #a6f1d9;
-  color: #333;
-}
-
-.no {
-  background-color: #ff7fa6;
-  color: #fff;
-}
-
-.hidden {
-  display: none;
+  font-weight: bold;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #game-area {
@@ -83,28 +64,52 @@ button.selected {
   overflow: hidden;
   border-radius: 20px;
   margin: 15px 0;
+  border: 3px solid #a6f1d9;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .heart {
   position: absolute;
-  font-size: 24px;
   cursor: pointer;
   user-select: none;
-  animation: fall linear;
+  animation-name: fall;
+  animation-timing-function: linear;
+  transition: transform 0.2s;
+}
+
+.heart:hover {
+  transform: scale(1.3);
 }
 
 @keyframes fall {
-  0% {top: -30px;}
-  100% {top: 300px;}
+  0% { top: -40px; transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { top: 300px; transform: rotate(360deg); }
 }
 
-.send-btn {
-  background-color: #98d1f1;
+#restart-game {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #a6f1d9;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.2s;
+}
+
+#restart-game:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.hidden {
+  display: none;
 }
 
 footer {
   text-align: center;
-  margin-top: 25px;
-  font-size: 14px;
-  color: #555;
+  margin-top: 20px;
+  color: #777;
 }
