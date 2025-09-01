@@ -18,6 +18,7 @@ const quizEl = document.getElementById('quiz');
 const resultEl = document.getElementById('result');
 const miniGameEl = document.getElementById('mini-game');
 const emailForm = document.getElementById('email-form');
+const resultHidden = document.getElementById('result-hidden');
 
 function loadQuestion() {
   if(current >= quizData.length) {
@@ -48,33 +49,49 @@ function showResult() {
   if(score <= 3) message = "Низький рівень депресії";
   else if(score <= 7) message = "Середній рівень депресії";
   else message = "Високий рівень депресії";
+
   resultEl.innerHTML = `<h2>Ваш результат: ${message}</h2>`;
+  resultHidden.value = message;
+
   miniGameEl.classList.remove('hidden');
   emailForm.classList.remove('hidden');
+  startGame();
 }
 
-// Міні-гра
-let clicks = 0;
-const gameBtn = document.getElementById('click-game');
-const gameMsg = document.getElementById('game-message');
-gameBtn.addEventListener('click', () => {
-  clicks++;
-  if(clicks >= 10){
-    gameMsg.textContent = "Ви виграли! 🎉";
-    gameBtn.disabled = true;
-  } else {
-    gameMsg.textContent = `Натиснуто: ${clicks}/10`;
-  }
-});
+// Міні-гра: ловимо сердечки
+const gameArea = document.getElementById('game-area');
+const scoreDisplay = document.getElementById('score-display');
+const restartBtn = document.getElementById('restart-game');
+let gameScore = 0;
+let gameInterval;
 
-// Email
-emailForm.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const email = document.getElementById('email').value;
-  const body = `Результат тесту: ${score} балів`;
-  const mailtoLink = `mailto:${email}?subject=Результат тесту&body=${body}`;
-  window.location.href = mailtoLink;
-});
+function startGame() {
+  gameScore = 0;
+  scoreDisplay.textContent = "Очки: 0";
+  gameArea.innerHTML = '';
+  restartBtn.classList.add('hidden');
 
-// Запускаем тест
-loadQuestion();
+  gameInterval = setInterval(() => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * (gameArea.offsetWidth - 30) + 'px';
+    heart.textContent = '❤️';
+    heart.style.animationDuration = (3 + Math.random()*2) + 's';
+    gameArea.appendChild(heart);
+
+    heart.addEventListener('click', () => {
+      gameScore++;
+      scoreDisplay.textContent = `Очки: ${gameScore}`;
+      heart.remove();
+    });
+
+    setTimeout(() => {
+      if(heart.parentElement) heart.remove();
+    }, 5000);
+  }, 800);
+
+  setTimeout(endGame, 15000); // игра длится 15 секунд
+}
+
+function endGame() {
+  clear
