@@ -1,7 +1,7 @@
 // --- Тест ---
 const answers = document.querySelectorAll('.answer');
 answers.forEach(btn => {
-  btn.addEventListener('click', (e) => {
+  btn.addEventListener('click', () => {
     const parent = btn.parentElement;
     parent.querySelectorAll('.answer').forEach(a => a.classList.remove('selected'));
     btn.classList.add('selected');
@@ -14,8 +14,9 @@ document.getElementById('submit-test').addEventListener('click', () => {
     alert('Будь ласка, відповідайте на всі питання!');
     return;
   }
-  alert('Тест завершено! Тепер переходьте до міні-гри 🎉');
-  // можно отправить email через backend или emailjs
+  document.getElementById('test-area').classList.add('hidden');
+  document.getElementById('game-section').classList.remove('hidden');
+  startGame();
 });
 
 // --- Міні-гра ---
@@ -45,24 +46,4 @@ function startGame() {
       gameScore++;
       scoreDisplay.textContent = `Очки: ${gameScore}`;
       heart.remove();
-      heartEffect(heart);
-    });
-
-    setTimeout(() => {
-      if (heart.parentElement) heart.remove();
-    }, 5000);
-
-  }, 700);
-
-  setTimeout(endGame, 15000);
-}
-
-function heartEffect(heart) {
-  const burst = document.createElement('div');
-  burst.textContent = '✨';
-  burst.style.position = 'absolute';
-  burst.style.left = heart.style.left;
-  burst.style.top = heart.offsetTop + 'px';
-  burst.style.fontSize = '24px';
-  gameArea.appendChild(burst);
-  setTimeout(() => burst.remove(), 500);
+      const burst = document.createElement
