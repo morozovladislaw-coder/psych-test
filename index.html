@@ -1,42 +1,55 @@
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Тест на депресію</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Психологічний тест</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-  <header>
+  <div class="container">
     <h1>Тест на депресію</h1>
-    <p>Відповідайте чесно, щоб отримати точний результат</p>
-  </header>
-
-  <main>
-    <div id="quiz" class="quiz-card"></div>
-    <div id="result" class="quiz-card hidden"></div>
-
-    <div id="mini-game" class="quiz-card hidden">
-      <h2>🎁 Міні-гра: злови сердечки!</h2>
-      <p>Натискай на падаючі сердечки, щоб набрати очки!</p>
-      <div id="game-area"></div>
-      <p id="score-display">Очки: 0</p>
-      <button id="restart-game" class="send-btn hidden">Грати ще раз</button>
+    <div id="test-area">
+      <!-- Питання -->
+      <div class="question" data-index="0">
+        <p>1. Ви часто відчуваєте сум?</p>
+        <button class="answer yes">Так</button>
+        <button class="answer no">Ні</button>
+      </div>
+      <div class="question" data-index="1">
+        <p>2. Вам важко зосередитися?</p>
+        <button class="answer yes">Так</button>
+        <button class="answer no">Ні</button>
+      </div>
+      <div class="question" data-index="2">
+        <p>3. Ви втратили інтерес до улюблених справ?</p>
+        <button class="answer yes">Так</button>
+        <button class="answer no">Ні</button>
+      </div>
+      <div class="question" data-index="3">
+        <p>4. Ви відчуваєте втому майже постійно?</p>
+        <button class="answer yes">Так</button>
+        <button class="answer no">Ні</button>
+      </div>
+      <div class="question" data-index="4">
+        <p>5. Ви відчуваєте провину без причини?</p>
+        <button class="answer yes">Так</button>
+        <button class="answer no">Ні</button>
+      </div>
+      <button id="submit-test">Закінчити тест</button>
     </div>
 
-    <form id="email-form" class="quiz-card hidden" 
-          action="mailto:morozovladislaw@gmail.com" method="POST" enctype="text/plain">
-      <h3>Надіслати результат на емейл</h3>
-      <input type="hidden" name="Результат" id="result-hidden">
-      <button type="submit" class="send-btn">Відправити результат</button>
-    </form>
-  </main>
+    <div id="game-section">
+      <h2>Міні-гра для вас 🎁</h2>
+      <div id="score-display">Очки: 0</div>
+      <div id="game-area"></div>
+      <button id="restart-game" class="hidden">Грати ще раз</button>
+    </div>
 
-  <footer>
-    Створено Inna Yarmoshenko & Morozovladislaw
-  </footer>
-</div>
+    <footer>
+      <p>Created by <strong>Inna Yarmoshenko & Morozovladislaw</strong></p>
+    </footer>
+  </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
