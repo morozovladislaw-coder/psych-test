@@ -1,55 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #fff1f5, #e0fff4);
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #ffe2e2, #e0ffe4);
   margin: 0;
   padding: 0;
 }
 
 .container {
-  max-width: 700px;
+  max-width: 650px;
   margin: 50px auto;
-  padding: 20px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.25);
 }
 
-header {
+h1, h2, h3 {
   text-align: center;
-  margin-bottom: 30px;
-}
-
-header h1 {
-  font-size: 2.2rem;
   color: #333;
 }
 
-header p {
-  color: #555;
-}
-
-.quiz-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 25px;
-  margin-bottom: 20px;
-  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.quiz-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 25px rgba(0,0,0,0.2);
-}
-
 button {
-  padding: 12px 25px;
-  margin: 8px;
+  padding: 12px 20px;
+  margin: 10px 0;
   border: none;
   border-radius: 15px;
-  font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
-  transition: all 0.2s;
+  font-size: 16px;
+  box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+  transition: 0.2s;
 }
 
 button:hover {
@@ -62,34 +40,15 @@ button.selected {
 }
 
 .yes {
-  background-color: #a6f1d9;
-  color: #333;
+  background-color: #98ff98;
 }
 
 .no {
-  background-color: #ff7fa6;
-  color: #fff;
+  background-color: #ff6f91;
 }
 
 .hidden {
   display: none;
-}
-
-#click-game {
-  background-color: #ffd580;
-}
-
-.send-btn {
-  background-color: #98d1f1;
-}
-
-input[type="email"] {
-  padding: 12px;
-  font-size: 16px;
-  width: 80%;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
 }
 
 footer {
@@ -97,4 +56,13 @@ footer {
   margin-top: 25px;
   font-size: 14px;
   color: #555;
+}
+
+input[type="email"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 80%;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
 }
