@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #fff1f5, #e0fff4);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: #333;
+}
+
+header p {
+  color: #555;
+}
+
+.quiz-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.quiz-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 25px rgba(0,0,0,0.2);
+}
+
+button {
+  padding: 12px 25px;
+  margin: 8px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+  transition: all 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button.selected {
+  background: #aaa !important;
+  color: #fff !important;
+}
+
+.yes {
+  background-color: #a6f1d9;
+  color: #333;
+}
+
+.no {
+  background-color: #ff7fa6;
+  color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+#click-game {
+  background-color: #ffd580;
+}
+
+.send-btn {
+  background-color: #98d1f1;
+}
+
+input[type="email"] {
+  padding: 12px;
+  font-size: 16px;
+  width: 80%;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+footer {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+  color: #555;
+}

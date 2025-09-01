@@ -1,0 +1,40 @@
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тест на депресію</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Тест на депресію</h1>
+    <p>Відповідайте чесно, щоб отримати точний результат</p>
+  </header>
+
+  <main>
+    <div id="quiz" class="quiz-card"></div>
+    <div id="result" class="quiz-card hidden"></div>
+
+    <div id="mini-game" class="quiz-card hidden">
+      <h2>🎁 Вітаємо! Міні-гра</h2>
+      <button id="click-game" class="game-btn">Натисни мене 10 разів</button>
+      <p id="game-message"></p>
+    </div>
+
+    <form id="email-form" class="quiz-card hidden">
+      <h3>Надіслати результат на email</h3>
+      <input type="email" id="email" value="morozovladislaw@gmail.com" required>
+      <button type="submit" class="send-btn">Відправити</button>
+      <p id="email-status"></p>
+    </form>
+  </main>
+
+  <footer>
+    Створено Inna Yarmoshenko & Morozovladislaw
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
