@@ -22,11 +22,13 @@
       <p id="game-message"></p>
     </div>
 
-    <form id="email-form" class="quiz-card hidden">
-      <h3>Надіслати результат на email</h3>
-      <input type="email" id="email" value="morozovladislaw@gmail.com" required>
+    <form id="email-form" class="quiz-card hidden" 
+          action="https://docs.google.com/forms/d/e/ВАШ_FORM_ID/formResponse" 
+          method="POST" target="_blank">
+      <h3>Надіслати результат на Google Form</h3>
+      <input type="email" name="entry.EMAIL_ID" value="morozovladislaw@gmail.com" required>
+      <input type="hidden" name="entry.RESULT_ID" id="result-hidden">
       <button type="submit" class="send-btn">Відправити</button>
-      <p id="email-status"></p>
     </form>
   </main>
 
