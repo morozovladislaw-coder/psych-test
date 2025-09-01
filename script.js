@@ -20,7 +20,7 @@ const miniGameEl = document.getElementById('mini-game');
 const emailForm = document.getElementById('email-form');
 
 function loadQuestion() {
-  if(current >= quizData.length) {
+  if (current >= quizData.length) {
     showResult();
     return;
   }
@@ -53,6 +53,9 @@ function showResult() {
   emailForm.classList.remove('hidden');
 }
 
+// Запускаем тест
+loadQuestion();
+
 // Міні-гра
 let clicks = 0;
 const gameBtn = document.getElementById('click-game');
@@ -67,7 +70,7 @@ gameBtn.addEventListener('click', () => {
   }
 });
 
-// Email
+// Відправка email
 emailForm.addEventListener('submit', (e)=>{
   e.preventDefault();
   const email = document.getElementById('email').value;
@@ -75,6 +78,3 @@ emailForm.addEventListener('submit', (e)=>{
   const mailtoLink = `mailto:${email}?subject=Результат тесту&body=${body}`;
   window.location.href = mailtoLink;
 });
-
-// Запускаем тест
-loadQuestion();
