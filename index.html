@@ -2,14 +2,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Психологічний тест</title>
+  <title>Тест на депресію</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>Тест на депресію</h1>
     <div id="test-area">
-      <!-- Питання -->
       <div class="question" data-index="0">
         <p>1. Ви часто відчуваєте сум?</p>
         <button class="answer yes">Так</button>
@@ -38,18 +37,19 @@
       <button id="submit-test">Закінчити тест</button>
     </div>
 
-    <div id="game-section">
+    <div id="game-section" class="hidden">
       <h2>Міні-гра для вас 🎁</h2>
+      <p>Ловіть сердечка та отримуйте очки!</p>
       <div id="score-display">Очки: 0</div>
       <div id="game-area"></div>
       <button id="restart-game" class="hidden">Грати ще раз</button>
+      <p class="reminder">Не забудьте надіслати результати Інночці ❤️</p>
     </div>
 
     <footer>
       <p>Created by <strong>Inna Yarmoshenko & Morozovladislaw</strong></p>
     </footer>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
