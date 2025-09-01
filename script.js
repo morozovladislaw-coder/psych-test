@@ -1,68 +1,80 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #ffe2e2, #e0ffe4);
-  margin: 0;
-  padding: 0;
+const quizData = [
+  { q: "Ви відчуваєте сум більшу частину дня?", yes: 1, no: 0 },
+  { q: "Ви втратили інтерес до улюблених занять?", yes: 1, no: 0 },
+  { q: "Ви відчуваєте втому або низьку енергію?", yes: 1, no: 0 },
+  { q: "Ви відчуваєте почуття провини чи непотрібності?", yes: 1, no: 0 },
+  { q: "Ви відчуваєте труднощі з концентрацією?", yes: 1, no: 0 },
+  { q: "Ви маєте зміни апетиту або сну?", yes: 1, no: 0 },
+  { q: "Ви відчуваєте дратівливість або тривожність?", yes: 1, no: 0 },
+  { q: "Ви відчуваєте відчуження від оточення?", yes: 1, no: 0 },
+  { q: "Ви помічаєте зниження самооцінки?", yes: 1, no: 0 },
+  { q: "Ви часто відчуваєте безнадію?", yes: 1, no: 0 }
+];
+
+let current = 0;
+let score = 0;
+
+const quizEl = document.getElementById('quiz');
+const resultEl = document.getElementById('result');
+const miniGameEl = document.getElementById('mini-game');
+const emailForm = document.getElementById('email-form');
+
+function loadQuestion() {
+  if (current >= quizData.length) {
+    showResult();
+    return;
+  }
+  const q = quizData[current];
+  quizEl.innerHTML = `<p>${q.q}</p>
+    <button class="yes">Так</button>
+    <button class="no">Ні</button>`;
+
+  const buttons = quizEl.querySelectorAll('button');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      score += btn.classList.contains('yes') ? q.yes : q.no;
+      current++;
+      setTimeout(loadQuestion, 300);
+    });
+  });
 }
 
-.container {
-  max-width: 650px;
-  margin: 50px auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+function showResult() {
+  quizEl.classList.add('hidden');
+  resultEl.classList.remove('hidden');
+  let message = "";
+  if(score <= 3) message = "Низький рівень депресії";
+  else if(score <= 7) message = "Середній рівень депресії";
+  else message = "Високий рівень депресії";
+  resultEl.innerHTML = `<h2>Ваш результат: ${message}</h2>`;
+  miniGameEl.classList.remove('hidden');
+  emailForm.classList.remove('hidden');
 }
 
-h1, h2, h3 {
-  text-align: center;
-  color: #333;
-}
+// Запускаем тест
+loadQuestion();
 
-button {
-  padding: 12px 20px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: 0 6px 8px rgba(0,0,0,0.2);
-  transition: 0.2s;
-}
+// Міні-гра
+let clicks = 0;
+const gameBtn = document.getElementById('click-game');
+const gameMsg = document.getElementById('game-message');
+gameBtn.addEventListener('click', () => {
+  clicks++;
+  if(clicks >= 10){
+    gameMsg.textContent = "Ви виграли! 🎉";
+    gameBtn.disabled = true;
+  } else {
+    gameMsg.textContent = `Натиснуто: ${clicks}/10`;
+  }
+});
 
-button:hover {
-  transform: translateY(-2px);
-}
-
-button.selected {
-  background: #aaa !important;
-  color: #fff !important;
-}
-
-.yes {
-  background-color: #98ff98;
-}
-
-.no {
-  background-color: #ff6f91;
-}
-
-.hidden {
-  display: none;
-}
-
-footer {
-  text-align: center;
-  margin-top: 25px;
-  font-size: 14px;
-  color: #555;
-}
-
-input[type="email"] {
-  padding: 10px;
-  font-size: 16px;
-  width: 80%;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-}
+// Відправка email
+emailForm.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const body = `Результат тесту: ${score} балів`;
+  const mailtoLink = `mailto:${email}?subject=Результат тесту&body=${body}`;
+  window.location.href = mailtoLink;
+});
