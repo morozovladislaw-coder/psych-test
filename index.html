@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
@@ -8,27 +7,34 @@
 </head>
 <body>
 <div class="container">
-  <h1>Тест на депресію</h1>
-  <div id="quiz"></div>
-  <div id="result" class="hidden"></div>
+  <header>
+    <h1>Тест на депресію</h1>
+    <p>Відповідайте чесно, щоб отримати точний результат</p>
+  </header>
 
-  <div id="mini-game" class="hidden">
-    <h2>🎁 Вітаємо! Міні-гра</h2>
-    <button id="click-game">Натисни мене 10 разів</button>
-    <p id="game-message"></p>
-  </div>
+  <main>
+    <div id="quiz" class="quiz-card"></div>
+    <div id="result" class="quiz-card hidden"></div>
 
-  <form id="email-form" class="hidden">
-    <h3>Надіслати результат на email</h3>
-    <input type="email" id="email" value="morozovladislaw@gmail.com" required>
-    <button type="submit">Відправити</button>
-    <p id="email-status"></p>
-  </form>
+    <div id="mini-game" class="quiz-card hidden">
+      <h2>🎁 Вітаємо! Міні-гра</h2>
+      <button id="click-game" class="game-btn">Натисни мене 10 разів</button>
+      <p id="game-message"></p>
+    </div>
+
+    <form id="email-form" class="quiz-card hidden">
+      <h3>Надіслати результат на email</h3>
+      <input type="email" id="email" value="morozovladislaw@gmail.com" required>
+      <button type="submit" class="send-btn">Відправити</button>
+      <p id="email-status"></p>
+    </form>
+  </main>
 
   <footer>
     Створено Inna Yarmoshenko & Morozovladislaw
   </footer>
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>
